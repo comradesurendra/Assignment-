@@ -21,17 +21,17 @@ readData(rooturl)
 
 function useData(data){
 
-    //Sorting the object accoring to sequenceNo
+    //Sorting the object according to sequenceNo
     var byDate = data.slice(0);
     byDate.sort(function(a,b) {
 	return a.sequenceNO - b.sequenceNO;
     })
 
-    //Iterating through the object and 
+    //Iterating through the object  
     let len = data.length;
     for(let i=0;i<len;i++) {
+
         let card = document.createElement('div')
-        
         card.addEventListener('click',function(){
             childData(data[i].id)
         })
@@ -45,7 +45,6 @@ function useData(data){
     }
 
 }
-
 
 function childData(id){
     //e.preventDefault()
