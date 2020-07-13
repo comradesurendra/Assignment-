@@ -1,19 +1,19 @@
 'use strict'
 
-//Main Container Div tag
+//-----------------------------------------------Main Container
 let container = document.getElementById('container')
-let childcontainer = document.getElementById('childcontainer')
+let model = document.getElementById('model')
 
-//Fetch API to featch the json data from server
+//--------------------------------------Fetch API to featch the json data from server
 const rooturl = 'http://localhost:3000/api/book/maths'
 
-
+//--------------------------------Home Page--------------------------------------------------------------
 function readData(url){
 const fetchPromise = fetch(url)
 fetchPromise.then(res => {
     return res.json()
 }).then(data =>{
-    useData(data.response); //Calling Function with parameter of json data
+    useData(data.response); //---------------Using Function call with parameter to pass the json response data
 })
 .catch(err => err) 
 }
@@ -21,17 +21,18 @@ readData(rooturl)
 
 function useData(data){
     
-    //Sorting the object according to sequenceNo
+    //-----------------Sorting the object according to sequenceNo
     var byDate = data.slice(0);
     byDate.sort(function(a,b) {
 	return a.sequenceNO - b.sequenceNO;
     })
 
-    //Iterating through the object  
+    //------------------------------Iterating through the object  
     let len = data.length;
     for(let i=0;i<len;i++) {
 
         let card = document.createElement('div')
+        //----------------------------------------Added Event Listner to Every Card--------------------------
         card.addEventListener('click',function(){
             childData(data[i].id)
         })
@@ -46,12 +47,11 @@ function useData(data){
 
 }
 
+//------------------------------------Child Page-------------------------------------------------------------
+
 function childData(id){
-    //e.preventDefault()
-    try{
-    var childurl = 'http://localhost:3000/api/book/maths/section/'+ id
-    } catch(err){ container.alert('No Lession Available') }
-    //console.log(childurl);
+    let childurl = 'http://localhost:3000/api/book/maths/section/'+ id
+
     function readData(url){
         const fetchPromise = fetch(url)
         fetchPromise.then(res => {
@@ -78,18 +78,11 @@ function childData(id){
             let len = data.length;
             console.log(len);
             for(var i=0;i<len;i++){
-                let card = document.createElement('div')
-
-                card.innerHTML = `
-                    <div class='title'>${data[i].title}</div>
-                    <div class='lession'>${data[i].childrenCount}</div>
-                    <div class='status'>${check(data[i].completeCount)}</div>
-                  `
-                  childcontainer.appendChild(card); 
+               
             }
 }
 
-//Comparing the progress
+//------------------------Comparing the progress
 let check =(status) => {
     if(status == 0){
         return 'Not Started'
