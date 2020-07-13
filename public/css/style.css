@@ -15,7 +15,7 @@ h4 {
 }
 
 .model {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%) scale(0);
@@ -31,6 +31,26 @@ h4 {
 .model.active {
   transform: translate(-50%,-50%) scale(1);
 }
+
+.model-body {
+    display: inline-block;
+    height: 170px;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    text-decoration: solid;
+    background-color: #67ff80;
+}
+
+.model-body .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
 #overlay {
   position: absolute;
   opacity: 0;

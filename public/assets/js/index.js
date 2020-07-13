@@ -2,7 +2,7 @@
 
 let container = document.getElementById('container')//------------------------------------------Main Container
 let model = document.getElementById('model')//------------model container for child data
-
+let overlay = document.getElementById('overlay')
 //--------------------------------------Fetch API to featch the json data from server
 const rooturl = 'http://localhost:3000/api/book/maths'
 
@@ -66,12 +66,11 @@ function childData(id){
     function useChildrenData(data){
             //-----------------------Iterating through the object and 
             let len = data.length;
-
+            model.innerHTML = `<div class='cross-button'>&times;</div>`
             for(var i=0;i<len;i++){
                 let childCard = document.createElement('div')
                 childCard.classList.add('child-card')
                 childCard.innerHTML = `
-                    
                     <div class='model-body'>${data[i].title}</div>
                     <div class ='type'>${data[i].type}</div>
                     <div class ='status'>${data[i].status}</div>
