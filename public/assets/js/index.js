@@ -20,7 +20,7 @@ fetchPromise.then(res => {
 readData(rooturl)
 
 function useData(data){
-
+    
     //Sorting the object according to sequenceNo
     var byDate = data.slice(0);
     byDate.sort(function(a,b) {
@@ -37,7 +37,7 @@ function useData(data){
         })
         card.classList.add('card')
         card.innerHTML = `
-            <div class='title'>${data[i].title}</div>
+            <div class='title'><h4>${data[i].title}</h4></div>
             <div class='lession'>Number Of Lessons : ${data[i].childrenCount}</div>
             <div class='status'>${check(data[i].completeCount)}</div>
           `
@@ -48,7 +48,9 @@ function useData(data){
 
 function childData(id){
     //e.preventDefault()
-    const childurl = 'http://localhost:3000/api/book/maths/section/'+ id
+    try{
+    var childurl = 'http://localhost:3000/api/book/maths/section/'+ id
+    } catch(err){ container.alert('No Lession Available') }
     //console.log(childurl);
     function readData(url){
         const fetchPromise = fetch(url)
@@ -56,7 +58,7 @@ function childData(id){
             return res.json()
             
         }).then(data =>{
-            useChildrenData(data); 
+            useChildrenData(data.response,id); 
         })
         .catch(err => err) 
         }
@@ -64,8 +66,7 @@ function childData(id){
     }
 
     function useChildrenData(data){
-            let newData = data.response
-            console.log(newData);
+            console.log(data);
             //Sorting the object accoring to sequenceNo
             var byDate = newData.response.slice(0);
             byDate.sort(function(a,b) {

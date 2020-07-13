@@ -7,6 +7,11 @@ body {
     background-color: white;
 }
 
+h4 {
+  text-align: center;
+
+}
+
 .title {
     display: inline-block;
     height: 170px;
@@ -22,19 +27,24 @@ body {
     width: auto;
     margin: auto;
     text-align: center;
-    background-color: indianred;
+    background-color: #fe91ca;
 }
 
 .status {
     display: block;
     height: 60px;
     width: auto;
-    background-color: lawngreen;
+    background-color:#df5e88;
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+    background: linear-gradient(var(--bg-angle), var(--bg-start), var(--bg-end));
+    box-shadow: var(--h1) var(--v1) var(--color-dark), 
+              var(--h2) var(--v2) var(--color-light);
     transition: 0.3s;
+    border-radius: 25px;
+    border: 2px;
     display: absolute;
     float: left;
     height: 300px;
@@ -44,7 +54,7 @@ body {
   }
   
   .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(255, 0, 221, 0.2);
   }
   
   #container {
