@@ -15,7 +15,7 @@ h4 {
 }
 
 .model {
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%) scale(0);
@@ -32,7 +32,7 @@ h4 {
   transform: translate(-50%,-50%) scale(1);
 }
 #overlay {
-  position: relative;
+  position: absolute;
   opacity: 0;
   transition: 200ms ease-in-out;
   top: 0;
@@ -58,6 +58,15 @@ h4 {
 }
 
 .lession {
+    display: block;
+    height: 70px;
+    width: auto;
+    margin: auto;
+    text-align: center;
+    background-color: #fe91ca;
+}
+
+.type {
     display: block;
     height: 70px;
     width: auto;
@@ -94,6 +103,24 @@ h4 {
     box-shadow: 0 8px 16px 0 rgba(255, 0, 221, 0.2);
   }
   
+  .child-card {
+    background: linear-gradient(var(--bg-angle), var(--bg-start), var(--bg-end));
+    box-shadow: var(--h1) var(--v1) var(--color-dark), 
+              var(--h2) var(--v2) var(--color-light);
+    transition: 0.3s;
+    border-radius: 25px;
+    border: 2px;
+    display: absolute;
+    float: left;
+    height: 300px;
+    width: 200px;
+    text-align: center;
+    margin: 10px;
+  }
+
+  .child-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(255, 0, 221, 0.2);
+  }
   #container {
     padding: 2px 16px;
     margin-left:55px;

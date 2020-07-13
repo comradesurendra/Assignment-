@@ -66,17 +66,17 @@ function childData(id){
     function useChildrenData(data){
             //-----------------------Iterating through the object and 
             let len = data.length;
-            console.log(len);
 
             for(var i=0;i<len;i++){
                 let childCard = document.createElement('div')
                 childCard.classList.add('child-card')
                 childCard.innerHTML = `
+                    
                     <div class='model-body'>${data[i].title}</div>
                     <div class ='type'>${data[i].type}</div>
                     <div class ='status'>${data[i].status}</div>
                 `
-
+                model.appendChild(childCard)
                
             }
 }
