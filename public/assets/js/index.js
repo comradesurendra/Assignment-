@@ -64,13 +64,15 @@ function childData(id){
     }
 
     function useChildrenData(data){
-            console.log (data)
+            let newData = data.response
+            console.log(newData);
             //Sorting the object accoring to sequenceNo
-            var byDate = data[0].slice(0);
+            var byDate = newData.response.slice(0);
             byDate.sort(function(a,b) {
             return a.sequenceNO - b.sequenceNO;
             })
-
+            console.log(newData);
+            //console.log(data.response);
             //Iterating through the object and 
             let len = data.length;
             console.log(len);
