@@ -1,8 +1,8 @@
 'use strict'
 
 let container = document.getElementById('container')//------------------------------------------Main Container
-let model = document.getElementById('model')//------------model container for child data
-let overlay = document.getElementById('overlay')
+let modal = document.getElementById('modal')//----------------------model container for child data
+
 //--------------------------------------Fetch API to featch the json data from server
 const rooturl = 'http://localhost:3000/api/book/maths'
 
@@ -20,24 +20,24 @@ readData(rooturl)
 
 function useData(data){
     
-    //-----------------Sorting the object according to sequenceNo
+    //-----------------Sorting the object according to sequenceNo---------------
     var byDate = data.slice(0);
     byDate.sort(function(a,b) {
 	return a.sequenceNO - b.sequenceNO;
     })
 
-    //------------------------------Iterating through the object  
+    //------------------------------Iterating through the object-----------------  
     let len = data.length;
     for(let i=0;i<len;i++) {
 
         let card = document.createElement('div')
         //----------------------------------------Added Event Listner to Every Card--------------------------
-        card.addEventListener('click',function(){
+        card.addEventListener('click',() => {
             childData(data[i].id)
         })
         card.classList.add('card')
         card.innerHTML = `
-            <div class='title'><h4>${data[i].title}</h4></div>
+            <div class='title'><a href='#modal'><h4>${data[i].title}</h4></a></div>
             <div class='lession'>Number Of Lessons : ${data[i].childrenCount}</div>
             <div class='status'>${check(data[i].completeCount)}</div>
           `
@@ -66,16 +66,19 @@ function childData(id){
     function useChildrenData(data){
             //-----------------------Iterating through the object and 
             let len = data.length;
-            model.innerHTML = `<div class='cross-button'>&times;</div>`
             for(var i=0;i<len;i++){
                 let childCard = document.createElement('div')
                 childCard.classList.add('child-card')
+                childCard.addEventListener('click',() =>{
+                    window.location.reload()
+                })
+
                 childCard.innerHTML = `
                     <div class='model-body'>${data[i].title}</div>
                     <div class ='type'>${data[i].type}</div>
                     <div class ='status'>${data[i].status}</div>
                 `
-                model.appendChild(childCard)
+                modal.appendChild(childCard)
                
             }
 }
