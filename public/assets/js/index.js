@@ -1,13 +1,12 @@
 'use strict'
 
-//-----------------------------------------------Main Container
-let container = document.getElementById('container')
-let model = document.getElementById('model')
+let container = document.getElementById('container')//------------------------------------------Main Container
+let model = document.getElementById('model')//------------model container for child data
 
 //--------------------------------------Fetch API to featch the json data from server
 const rooturl = 'http://localhost:3000/api/book/maths'
 
-//--------------------------------Home Page--------------------------------------------------------------
+//--------------------------------Root Page--------------------------------------------------------------
 function readData(url){
 const fetchPromise = fetch(url)
 fetchPromise.then(res => {
@@ -50,34 +49,34 @@ function useData(data){
 //------------------------------------Child Page-------------------------------------------------------------
 
 function childData(id){
+
     let childurl = 'http://localhost:3000/api/book/maths/section/'+ id
 
     function readData(url){
         const fetchPromise = fetch(url)
         fetchPromise.then(res => {
             return res.json()
-            
         }).then(data =>{
-            useChildrenData(data.response,id); 
-        })
-        .catch(err => err) 
+            useChildrenData(data.response[id]); 
+        }).catch(err => err) 
         }
         readData(childurl)
     }
 
     function useChildrenData(data){
-            console.log(data);
-            //Sorting the object accoring to sequenceNo
-            var byDate = newData.response.slice(0);
-            byDate.sort(function(a,b) {
-            return a.sequenceNO - b.sequenceNO;
-            })
-            console.log(newData);
-            //console.log(data.response);
-            //Iterating through the object and 
+            //-----------------------Iterating through the object and 
             let len = data.length;
             console.log(len);
+
             for(var i=0;i<len;i++){
+                let childCard = document.createElement('div')
+                childCard.classList.add('child-card')
+                childCard.innerHTML = `
+                    <div class='model-body'>${data[i].title}</div>
+                    <div class ='type'>${data[i].type}</div>
+                    <div class ='status'>${data[i].status}</div>
+                `
+
                
             }
 }
