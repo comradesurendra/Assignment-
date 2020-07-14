@@ -16,6 +16,12 @@ a {
   text-decoration: none !important;
 }
 
+h2 {
+  background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+}
+h3 {
+  background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
+}
 .modal {
   width: auto;
   height: 500px;
@@ -43,6 +49,7 @@ a {
     margin: auto;
     text-transform: capitalize;
     text-align: center;
+    font-size: medium;
     color: #363636;
     justify-content: space-around;
     align-items: center;
@@ -54,6 +61,7 @@ a {
     height: 60px;
     width: auto;
     text-transform: capitalize;
+    font-size: 1.4rem;
     color: #363636;
     justify-content: space-around;
     align-items: center;
@@ -95,7 +103,6 @@ a {
     height: 300px;
     width: 200px;
     margin: 10px;
-    justify-content: space-around;
     align-items: center;
     background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
     justify-content: space-around;
@@ -108,6 +115,11 @@ a {
   #container {
     padding: 2px 16px;
     margin-left:55px;
+  }
+
+  nav {
+    width: auto;
+    height: 50px;
   }
 
 @media screen and (max-width: 1060px) {

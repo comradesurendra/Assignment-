@@ -35,7 +35,7 @@ function useData(data){
         
         card.classList.add('card')
         card.innerHTML = `
-            <div class='title'><a href='children.html'>${data[i].title}</a></div>
+            <div class='title'><a href='#result'>${data[i].title}</a></div>
             <div class='type'>Number Of Lessons : ${data[i].childrenCount}</div>
             <div class='status'>${check(data[i].completeCount)}</div>
           `
