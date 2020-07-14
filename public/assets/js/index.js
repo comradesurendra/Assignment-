@@ -21,10 +21,9 @@ readData(rooturl)
 function useData(data){
     
     //-----------------Sorting the object according to sequenceNo---------------
-    var byDate = data.slice(0);
-    byDate.sort(function(a,b) {
-	return a.sequenceNO - b.sequenceNO;
-    })
+    data.sort((a, b) => {
+        return a.sequenceNO - b.sequenceNO;
+    });
 
     //------------------------------Iterating through the object-----------------  
     let len = data.length;
@@ -67,7 +66,12 @@ function childData(id){
     }
 
     function useChildrenData(data){
-            //-----------------------Iterating through the object and 
+        //console.log(data);
+        //-----------------Sorting the object according to sequenceNo---------------     
+        data.sort((a, b) => {
+            return a.sequenceNO - b.sequenceNO;
+        });
+            //-----------------------Iterating through the object and
             let len = data.length;
             for(var i=0;i<len;i++){
                 let childCard = document.createElement('div')
@@ -75,7 +79,7 @@ function childData(id){
 
                 childCard.innerHTML = `
                     <div class='title'>${data[i].title}</div>
-                    <div class ='type'>${data[i].type}</div>
+                    <div class ='type'>${data[i].type+' ' + 'No' +' '+data[i].sequenceNO}</div>
                     <div class ='status'>${check(data[i].status)}</div>
                 `
                 modal.appendChild(childCard)
