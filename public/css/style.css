@@ -19,14 +19,14 @@ a {
 h2 {
   background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
 }
+
 h3 {
   background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
 }
+
 .modal {
-  width: auto;
-  height: 500px;
-  text-align: center;
-  background-color: black;
+  padding: 2px 16px;
+    margin-left:55px;
 }
 
 

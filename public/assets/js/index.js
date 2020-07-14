@@ -76,7 +76,7 @@ function childData(id){
                 childCard.innerHTML = `
                     <div class='title'>${data[i].title}</div>
                     <div class ='type'>${data[i].type}</div>
-                    <div class ='status'>${data[i].status}</div>
+                    <div class ='status'>${check(data[i].status)}</div>
                 `
                 modal.appendChild(childCard)
 
