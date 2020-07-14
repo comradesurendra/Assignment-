@@ -80,7 +80,7 @@ function childData(id){
                 childCard.innerHTML = `
                     <div class='title'>${data[i].title}</div>
                     <div class ='type'>${data[i].type+' ' + 'No' +' '+data[i].sequenceNO}</div>
-                    <div class ='status'>${check(data[i].status)}</div>
+                    <div class ='status'>${checkChild(data[i].status)}</div>
                 `
                 modal.appendChild(childCard)
 
@@ -90,7 +90,7 @@ function childData(id){
             }
 }
 
-//------------------------Comparing the progress
+//------------------------Comparing the progress for root
 let check =(status) => {
     if(status == 0){
         return 'Not Started'
@@ -98,5 +98,15 @@ let check =(status) => {
         return 'In Progress'
     } else {
         return 'Completed'
+    }
+}
+
+let checkChild = (status) => {
+    if(status === 'COMPLETE'){
+        return 'Completed'
+    } else if (status === 'IN_PROGRESS'){
+        return 'In Progress'
+    } else {
+        return 'Not Started'
     }
 }
