@@ -32,16 +32,19 @@ function useData(data){
 
         let card = document.createElement('div')
         //----------------------------------------Added Event Listner to Every Card--------------------------
-        card.addEventListener('click',() => {
-            childData(data[i].id)
-        })
+        
         card.classList.add('card')
         card.innerHTML = `
-            <div class='title'><a href='#modal'><h4>${data[i].title}</h4></a></div>
-            <div class='lession'>Number Of Lessons : ${data[i].childrenCount}</div>
+            <div class='title'><a href='children.html'>${data[i].title}</a></div>
+            <div class='type'>Number Of Lessons : ${data[i].childrenCount}</div>
             <div class='status'>${check(data[i].completeCount)}</div>
           `
-          container.appendChild(card); 
+          container.appendChild(card);
+
+          card.addEventListener('click',() => {
+            childData(data[i].id)
+            // window.document.location='/children.html'
+        })
     }
 
 }
@@ -69,17 +72,17 @@ function childData(id){
             for(var i=0;i<len;i++){
                 let childCard = document.createElement('div')
                 childCard.classList.add('child-card')
-                childCard.addEventListener('click',() =>{
-                    window.location.reload()
-                })
 
                 childCard.innerHTML = `
-                    <div class='model-body'>${data[i].title}</div>
+                    <div class='title'>${data[i].title}</div>
                     <div class ='type'>${data[i].type}</div>
                     <div class ='status'>${data[i].status}</div>
                 `
                 modal.appendChild(childCard)
-               
+
+                childCard.addEventListener('click',() =>{
+                    window.location.reload()
+                })
             }
 }
 
