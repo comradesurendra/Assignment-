@@ -17,7 +17,7 @@
   "dependencies": {
     "@dogstudio/highway": "^2.2.1",
     "express": "^4.16.3",
-    "gsap": "^3.4.0",
+    "gsap": "^3.6.0",
     "parcel-bundler": "^1.12.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
